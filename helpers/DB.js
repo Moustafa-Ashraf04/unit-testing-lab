@@ -1,0 +1,12 @@
+const mongoose = require("mongoose");
+
+module.exports = async () => {
+  const URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/unitTesting";
+  await mongoose
+    .connect(
+      URI,
+      { useNewUrlParser: true }
+    )
+    .then(() => console.log("DB connected"))
+    .catch((err) => console.error(err));
+};
